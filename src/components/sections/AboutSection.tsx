@@ -11,7 +11,7 @@ const AboutSection: React.FC = () => {
   };
 
   const openGithub = () => {
-    window.open('https://github.com/maheshpikki', '_blank');
+    window.open('https://github.com/Mahesh10k', '_blank');
   };
 
   return (
