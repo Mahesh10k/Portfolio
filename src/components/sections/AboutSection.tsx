@@ -1,9 +1,31 @@
-import React from 'react';
+import React, { useEffect, useRef } from 'react';
 import SectionHeading from '../ui/SectionHeading';
-import { Code, User, Calendar, GraduationCap } from 'lucide-react';
+import { Code, User, GraduationCap, Briefcase } from 'lucide-react';
 import Button from '../ui/Button';
+import Typed from 'typed.js';
 
 const AboutSection: React.FC = () => {
+
+  const typedRef = useRef(null);
+
+  useEffect(() => {
+    const typed = new Typed(typedRef.current, {
+      strings: [
+        'MERN Stack Developer',
+        'Frontend Developer',
+        'Backend Developer',
+        'Fullstack Developer'
+      ],
+      typeSpeed: 50,
+      backSpeed: 30,
+      backDelay: 1500,
+      loop: true
+    });
+
+    return () => {
+      typed.destroy();
+    };
+  }, []);
 
   const handleResumeDownload = () => {
     const resumeUrl = "https://drive.google.com/file/d/1GNXRfrFY4nb50bBEWxyaI9LfNY0OfOVm/view?usp=sharing";
@@ -17,6 +39,14 @@ const AboutSection: React.FC = () => {
   return (
     <section id="about" className="py-20">
       <div className="container mx-auto px-4">
+        <div className="text-center mb-12">
+          <h1 className="text-4xl md:text-5xl font-bold mb-4">
+            Hi, I'm <span className="text-blue-600 dark:text-blue-400">Mahesh Pikki</span>
+          </h1>
+          <h2 className="text-2xl md:text-3xl text-gray-600 dark:text-gray-300">
+            Aspiring <span ref={typedRef} className="text-blue-600 dark:text-blue-400"></span>
+          </h2>
+        </div>
         <SectionHeading 
           title="About Me" 
           subtitle="A brief introduction to who I am and what I do"
@@ -58,21 +88,34 @@ const AboutSection: React.FC = () => {
                 </div>
                 <p className="text-gray-600 dark:text-gray-300">
                   B.Tech in Computer Science (AI & ML)<br />
-                  2024 Graduate
+                  <b>College</b> : KIET College <br />
+                  <b>Graduation</b> : 2020 - 2024<br />
+                  <b>CGPA</b> : 7.0 <br />
+
+
+
                 </p>
               </div>
               
               <div className="flex-1 bg-white dark:bg-gray-800 p-5 rounded-xl shadow-md">
                 <div className="flex items-center mb-3">
                   <div className="p-2 bg-blue-100 dark:bg-blue-900/30 rounded-full mr-3">
-                    <Calendar className="text-blue-600 dark:text-blue-400" size={20} />
+                    <Briefcase className="text-blue-600 dark:text-blue-400" size={20} />
                   </div>
                   <h3 className="text-lg font-semibold">Experience</h3>
                 </div>
-                <p className="text-gray-600 dark:text-gray-300">
-                  Fresh Graduate<br />
-                  Looking for opportunities
-                </p>
+                <div className="text-gray-600 dark:text-gray-300">
+                  <h4 className="font-semibold">Full Stack Developer Apprentice</h4>
+                  <p className="text-sm">10000 Coders | Hyderabad, India</p>
+                  <p className="text-sm mb-2">1 Year</p>
+                  <ul className="text-sm list-disc list-inside space-y-1">
+                    <li>Built reusable React components and implemented Redux for state management</li>
+                    <li>Developed secure authentication using JWT and cookies</li>
+                    <li>Integrated Cloudinary for file storage and streaming</li>
+                    <li>Worked with MongoDB Atlas and REST APIs</li>
+                    <li>Applied Agile methodologies and Git version control</li>
+                  </ul>
+                </div>
               </div>
             </div>
             
