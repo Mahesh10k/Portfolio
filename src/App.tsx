@@ -4,6 +4,7 @@ import AboutSection from './components/sections/AboutSection';
 import SkillsSection from './components/sections/SkillsSection';
 import ProjectsSection from './components/sections/ProjectsSection';
 import ContactSection from './components/sections/ContactSection';
+import Home from "./components/sections/Home"
 
 function App() {
   return (
@@ -11,6 +12,7 @@ function App() {
       <Navbar />
       
       <main className="flex-grow pt-20">
+        <Home/>
         <AboutSection />
         <SkillsSection />
         <ProjectsSection />
