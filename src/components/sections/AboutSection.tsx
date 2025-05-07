@@ -91,9 +91,6 @@ const AboutSection: React.FC = () => {
                   <b>College</b> : KIET College <br />
                   <b>Graduation</b> : 2020 - 2024<br />
                   <b>CGPA</b> : 7.0 <br />
-
-
-
                 </p>
               </div>
               
